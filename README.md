@@ -6,7 +6,7 @@ Este repositório contém a implementação do front-end do projeto **KidsGrace*
 - **Tela de Login e Cadastro**: Permite que os usuários se registrem e façam login para acessar suas informações e fazer compras.
 - **Página Principal**: Exibe produtos categorizados com filtros de busca e opções de visualização.
   - **Header**: Contém o logo à esquerda e um menu de navegação à direita. O logo leva à página inicial, enquanto o menu permite navegar pelas categorias de produtos.
-    ![Header](https://github.com/Lucas01012/ImagensKidSgrace/Header.png)
+    ![Header](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Header.png).
   - **Body**: Exibe os produtos em destaque, com imagens e descrições. Os usuários podem clicar nas imagens para ver mais detalhes sobre os produtos.
     ![Body](https://github.com/seuusuario/kids-grace/blob/main/imagens/body.png)
   - **Footer**: Contém links úteis, como "Sobre nós", "Política de Privacidade", e informações de contato.
