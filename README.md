@@ -10,7 +10,7 @@ Este repositório contém a implementação do front-end do projeto **KidsGrace*
   - **Body**: Exibe os produtos em destaque, com imagens e descrições. Os usuários podem clicar nas imagens para ver mais detalhes sobre os produtos.
     ![Body](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Body.png)
   - **Footer**: Contém links úteis, como "Sobre nós", "Política de Privacidade", e informações de contato.
-    ![Footer](https://github.com/seuusuario/kids-grace/blob/main/imagens/footer.png)
+    ![Footer](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Footer.png)
 - **Detalhes do Produto**: Ao clicar em um produto, o usuário pode visualizar detalhes completos, como descrições, imagens e preços.
 - **Carrinho de Compras**: Funcionalidade para adicionar produtos ao carrinho e seguir para o processo de checkout.
 - **Responsividade**: O site é responsivo, funcionando bem em dispositivos móveis, tablets e desktops.
