@@ -1,0 +1,28 @@
+<div class="profile-header">
+    <div class="header-content">
+      <h1 class="project-name" (click)="irParaHome($event)">KidsGrace</h1>
+    </div>
+  </div>
+  
+  <div class="profile-container">
+    <h2>Meu Perfil</h2>
+    <div class="profile-card">
+      <img src="https://via.placeholder.com/150" alt="Foto do Usuário" class="profile-img">
+  
+      <div class="profile-info">
+        <p><strong>Nome:</strong> {{ usuario.nome || 'Nome do Usuário' }}</p>
+        <p><strong>Email:</strong> {{ usuario.email || 'usuario@email.com' }}</p>
+        <p><strong>Telefone:</strong> {{ usuario.telefone || '(00) 00000-0000' }}</p>
+        <p><strong>Endereço:</strong> {{ usuario.endereco || 'Cidade, Estado' }}</p>
+      </div>
+  
+      <div class="profile-actions">
+        <button class="btn-edit">Editar Perfil</button>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <app-footer-generic></app-footer-generic>
+  </footer>
+  

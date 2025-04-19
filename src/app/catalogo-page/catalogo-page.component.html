@@ -1,0 +1,34 @@
+<div class="catalog-header">
+    <div class="header-content">
+      <h1 class="project-name" (click)="irParaHome($event)">KidsGrace</h1>
+    </div>
+  </div>
+  
+<div class="catalog-container">
+    <h2>Catálogo de Produtos</h2>
+    
+    <div class="filters">
+        <input type="text" id="search" placeholder="Buscar produtos...">
+        <select id="filter-category">
+            <option value="">Todos os tipos</option>
+            <option value="action-figures">Action Figures</option>
+            <option value="pelucias">Funkos</option>
+            <option value="colecionaveis">Estatuetas</option>
+            <option value="colecionaveis">Brinquedos</option>
+        </select>
+        <select id="filter-price">
+            <option value="">Ordenar por preço</option>
+            <option value="asc">Menor preço</option>
+            <option value="desc">Maior preço</option>
+        </select>
+    </div>
+    <div class ="button-busca">
+        <button>Buscar</button>
+    </div>
+    
+    <div class="product-grid" id="product-grid">
+    </div>
+</div>
+<footer>
+    <app-footer-generic></app-footer-generic>
+</footer>

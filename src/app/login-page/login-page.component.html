@@ -1,0 +1,26 @@
+<div class="login-header">
+  <div class="header-content">
+    <h1 class="project-name"(click)="irParaHome()">KidsGrace</h1>
+  </div>
+</div>
+
+<div class="login-container">
+  <h2>Login</h2>
+  <form (ngSubmit)="login()">
+    <div class="input-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="usuarioData.email" name="email" required />
+    </div>
+    <div class="input-group">
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" [(ngModel)]="usuarioData.senha" name="senha" required />
+    </div>
+    <button type="submit">Entrar</button>
+  </form>
+  <p class="register-link">
+    Não tem uma conta? <a routerLink="/register"(click)="cadastrar()">Cadastre-se aqui</a>
+  </p>
+</div>
+<footer>
+  <app-footer-generic></app-footer-generic>
+</footer>

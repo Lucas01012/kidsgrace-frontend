@@ -1,0 +1,37 @@
+<header class="header-container">
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="assets/images/logotipo.webp" alt="Logotipo" class="navbar-logo">
+            <a href="#" class="navbar-brand">KidsGrace</a>
+        </div>
+        <div class="navbar-center">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="O que você procura?">
+                <span class="input-group-text"><i class="bi bi-search"></i></span>
+            </div>
+        </div>
+        <div class="navbar-right">
+            <a href="#" class="nav-icon" (click)="irParaCarrinhoCompra($event)">
+                <div class="cart-container">
+                    <i class="bi bi-cart"></i>
+                    <span class="cart-badge" *ngIf="quantidadeTiposProdutos > 0">
+                        {{ quantidadeTiposProdutos }}
+                    </span>
+                </div>
+            </a>
+              
+            <a href="#" class="nav-icon" (click)="irParaUser($event)">
+                <i class="bi bi-person-circle"></i>
+            </a>
+            <button class="btn btn-light"(click)="irParaLogin()">Login</button>
+        </div>
+    </nav>
+    <div class="header-bottom">
+        <div class="header-separator"></div>
+        <nav class="nav">
+            <a href="#" class="nav-link"(click)="irParaCatalogo($event)">Catálogo</a>
+            <a href="#" class="nav-link"(click)="irParaEquipe($event)">Equipe</a>
+            <a href="#" class="nav-link"(click)="irParaAdministracao($event)">Administrativo</a>
+        </nav>
+    </div>
+</header>

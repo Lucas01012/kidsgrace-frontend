@@ -1,0 +1,35 @@
+<div class="edit-header">
+    <div class="header-content">
+      <h1 class="project-name" (click)="irParaHome($event)">KidsGrace</h1>
+    </div>
+  </div>
+  
+  <div class="edit-container">
+    <h2>Editar Personagem</h2>
+    <form id="character-form">
+      <input type="hidden" id="character-id">
+  
+      <label for="character-name">Nome:</label>
+      <input type="text" id="character-name" class="input-field" required>
+  
+      <label for="character-class">Tipo:</label>
+      <select id="character-class" class="input-field">
+        <option value="Action-Figure">Action-Figure</option>
+        <option value="Brinquedo">Brinquedo</option>
+        <option value="Funko">Funko</option>
+        <option value="Estatueta">Estatueta</option>
+      </select>
+  
+      <label for="character-level">Preco:</label>
+      <input type="number" id="character-level" class="input-field" min="1" max="100" required>
+  
+      <label for="character-image">Imagem:</label>
+      <input type="file" id="character-image" class="input-file" accept="image/*">
+  
+      <button type="submit" class="btn-primary">Salvar</button>
+      <button type="button" class="btn-secondary" id="cancel-edit">Cancelar</button>
+    </form>
+  </div>
+  <footer>
+    <app-footer-generic></app-footer-generic>
+  </footer>
