@@ -8,20 +8,24 @@
   <h2>Cadastro</h2>
   <form (ngSubmit)="cadastrar()">
     <div class="input-group">
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" [(ngModel)]="usuarioData.nome" name="nome" required />
+      <label for="nome">Nome Completo:</label>
+      <input type="text" id="nome" [(ngModel)]="usuarioData.name" name="nome" required />
     </div>
     <div class="input-group">
-      <label for="email">Email:</label>
-      <input type="email" id="email" [(ngModel)]="usuarioData.email" name="email" required />
+      <label for="userNome">Usuário:</label>
+      <input type="text" id="userNome" [(ngModel)]="usuarioData.username" name="userNome" required />
+    </div>
+    <div class="input-group">
+      <label for="o">Email:</label>
+      <input type="email" id="o" [(ngModel)]="usuarioData.email" name="o" required />
     </div>
     <div class="input-group">
       <label for="senha">Senha:</label>
-      <input type="password" id="senha" [(ngModel)]="usuarioData.senha" name="senha" required />
+      <input type="password" id="senha" [(ngModel)]="usuarioData.password" name="senha" required />
     </div>
     <div class="input-group">
       <label for="confirmarSenha">Confirmar Senha:</label>
-      <input type="password" id="confirmarSenha" [(ngModel)]="usuarioData.confirmarSenha" name="confirmarSenha" required />
+      <input type="password" id="confirmarSenha" [(ngModel)]="confirmarSenha" name="confirmarSenha" required />
     </div>
     <button type="submit">Cadastrar</button>
   </form>

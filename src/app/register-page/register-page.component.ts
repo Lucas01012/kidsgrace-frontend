@@ -1,33 +1,60 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import{Router} from '@angular/router'
+import { HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service'; // Importando o AuthService
 import { FooterGenericComponent } from '../footer-generic/footer-generic.component';
+
 @Component({
   selector: 'app-register-page',
+  standalone: true,
   templateUrl: './register-page.component.html',
   styleUrls: ['./register-page.component.scss'],
-  imports:[FormsModule, FooterGenericComponent]
+  imports: [FormsModule, FooterGenericComponent, HttpClientModule]
 })
 export class RegisterPageComponent {
-  constructor(private router: Router){}
   usuarioData = {
-    nome: '',
+    name: '',
+    username: '',
     email: '',
-    senha: '',
-    confirmarSenha: ''
+    password: ''
   };
 
+  confirmarSenha = ''
+
+  constructor(private router: Router, private authService: AuthService) {} // Injetando o AuthService
+
   cadastrar() {
-    if (this.usuarioData.senha === this.usuarioData.confirmarSenha) {
-      console.log('Cadastro realizado com sucesso!');
-    } else {
-      console.log('As senhas não coincidem.');
+console.log(this.usuarioData);
+
+    if (this.usuarioData.password === this.confirmarSenha){
+        // Chama o método cadastrar do AuthService
+      this.authService.cadastrar(this.usuarioData).subscribe(
+        (response) => {
+          console.log('Cadastro realizado com sucesso!', response);
+          // Redireciona para a página de login após o cadastro
+          this.irParaLogin();
+        },
+        (error) => {
+          console.error('Erro ao cadastrar usuário', error);
+          // Aqui você pode adicionar lógica para exibir uma mensagem de erro para o usuário
+        }
+      );
     }
+
+    else{
+      console.log("deu merda");
+    }
+    
+    
+    
   }
-  irParaLogin(){
+
+  irParaLogin() {
     this.router.navigate(['login']);
   }
-  irParaHome(){
-    this.router.navigate(['home'])
+
+  irParaHome() {
+    this.router.navigate(['home']);
   }
 }
