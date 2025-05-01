@@ -23,7 +23,8 @@ export const routes: Routes = [
   {path: 'edit', component: EditPageComponent},
   {path: 'catalogo', component: CatalogoPageComponent},
   {path: 'user', component:ProfilePageComponent},
-  {path:'team', component: TeamInfoComponent}
+  {path:'team', component: TeamInfoComponent},
+  {path:'toys', loadChildren: () => import('./toys/toys.module').then(m => m.ToysModule)}
 ];
 
 @NgModule({
