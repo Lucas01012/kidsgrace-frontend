@@ -4,19 +4,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service'; // Importando o AuthService
 import { FooterGenericComponent } from '../footer-generic/footer-generic.component';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 @Component({
   selector: 'app-register-page',
   standalone: true,
   templateUrl: './register-page.component.html',
   styleUrls: ['./register-page.component.scss'],
-  imports: [FormsModule, FooterGenericComponent, HttpClientModule]
+  imports: [FormsModule, FooterGenericComponent, HttpClientModule, NgxMaskDirective],
+  providers: [provideNgxMask()]
 })
 export class RegisterPageComponent {
   usuarioData = {
     name: '',
     username: '',
     email: '',
+    adress: '',
+    phone: '',
     password: ''
   };
 

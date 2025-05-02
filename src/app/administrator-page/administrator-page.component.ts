@@ -1,34 +1,48 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductService, Product } from '../services/product.service';
 import { FooterGenericComponent } from '../footer-generic/footer-generic.component';
 import { CommonModule } from '@angular/common';
-import { routes } from '../app.routes';
+
 @Component({
   selector: 'app-administrator-page',
-  imports: [FooterGenericComponent],
   templateUrl: './administrator-page.component.html',
-  styleUrl: './administrator-page.component.scss'
+  styleUrls: ['./administrator-page.component.scss'],
+  imports: [FooterGenericComponent, CommonModule]
 })
-export class AdministratorPageComponent {
-  @ViewChild('productForm') productForm!: ElementRef;
-  @ViewChild('addProductBtn') addProductBtn!: ElementRef;
+export class AdministratorPageComponent implements OnInit {
+  products: Product[] = [];
 
-  mostrarFormulario: boolean = false;
+  constructor(
+    private productService: ProductService,
+    private router: Router
+  ) {}
 
-  constructor(private router: Router) {}
-
-    ngOnInit(): void {
-
-    }
-
-  toggleForm(): void {
-    this.mostrarFormulario = !this.mostrarFormulario;
+  ngOnInit(): void {
+    this.productService.products$
+      .subscribe(list => this.products = list);
   }
-  irParaEditPage(event: Event){
+
+  addNew() {
+    this.router.navigate(['/edit']);
+  }
+
+  editProduct(id: number) {
+    this.router.navigate(['/edit', id]);
+  }
+
+  deleteProduct(id: number) {
+    if (confirm('Tem certeza que deseja excluir este produto?')) {
+      this.productService.deleteProduct(id);
+    }
+  }
+
+  irParaHome() {
+    this.router.navigate(['/home']);
+  }
+
+  irParaEditPage(event: Event) {
     event.preventDefault();
     this.router.navigate(['edit']);
-  }
-  irParaHome(){
-    this.router.navigate(['home']);
   }
 }

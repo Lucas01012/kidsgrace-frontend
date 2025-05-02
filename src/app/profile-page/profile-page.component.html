@@ -1,28 +1,46 @@
 <div class="profile-header">
-    <div class="header-content">
-      <h1 class="project-name" (click)="irParaHome($event)">KidsGrace</h1>
+  <div class="header-content">
+    <h1 class="project-name" (click)="irParaHome($event)">KidsGrace</h1>
+  </div>
+</div>
+
+<div class="profile-container">
+  <h2>Meu Perfil</h2>
+
+  <div class="profile-card">
+    <div class="profile-img-wrapper" (click)="mostrarSelecaoAvatar = true">
+      <ng-container *ngIf="!avatarSelecionado">
+        <div class="profile-placeholder">
+          <i class="bi bi-pencil-fill edit-icon-only"></i>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="avatarSelecionado">
+        <img [src]="avatarSelecionado" alt="Foto do Usuário" class="profile-img profile-img-cover">
+      </ng-container>      
+    </div>
+    
+    
+    <div class="profile-info">
+      <p><strong>Nome:</strong> {{ usuario.nome || 'Nome do Usuário' }}</p>
+      <p><strong>Email:</strong> {{ usuario.email || 'usuario@email.com' }}</p>
+      <p><strong>Telefone:</strong> {{ usuario.telefone || '(00) 00000-0000' }}</p>
+      <p><strong>Endereço:</strong> {{ usuario.endereco || 'Cidade, Estado' }}</p>
+    </div>
+
+    <div class="profile-actions">
+      <button class="btn-edit">Editar Dados</button>
     </div>
   </div>
-  
-  <div class="profile-container">
-    <h2>Meu Perfil</h2>
-    <div class="profile-card">
-      <img src="https://via.placeholder.com/150" alt="Foto do Usuário" class="profile-img">
-  
-      <div class="profile-info">
-        <p><strong>Nome:</strong> {{ usuario.nome || 'Nome do Usuário' }}</p>
-        <p><strong>Email:</strong> {{ usuario.email || 'usuario@email.com' }}</p>
-        <p><strong>Telefone:</strong> {{ usuario.telefone || '(00) 00000-0000' }}</p>
-        <p><strong>Endereço:</strong> {{ usuario.endereco || 'Cidade, Estado' }}</p>
-      </div>
-  
-      <div class="profile-actions">
-        <button class="btn-edit">Editar Perfil</button>
-      </div>
-    </div>
+
+  <div *ngIf="mostrarSelecaoAvatar" class="avatar-selection">
+    <img *ngFor="let avatar of avatars"
+         [src]="avatar"
+         (click)="selecionarAvatar(avatar)"
+         [class.selected]="avatarSelecionado === avatar">
   </div>
   
-  <footer>
-    <app-footer-generic></app-footer-generic>
-  </footer>
-  
+  </div>
+
+<footer>
+  <app-footer-generic></app-footer-generic>
+</footer>

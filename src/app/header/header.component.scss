@@ -25,18 +25,13 @@
     justify-content: flex-end;
 }
 
-.navbar-logo {
-    height: 70px;
-    width: auto;
-    margin-left: 50px;
-}
-
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: bold;
     color: #ffffff;
     font-family: 'Press Start 2P', system-ui;
     text-decoration: none;
+    margin-left: 70px;
 }
 
 .navbar-center {
@@ -46,25 +41,36 @@
 
 .input-group {
     display: flex;
-    border: 1px solid #bfbfbf;
-    border-radius: 5px;
+    border: none;
+    border-radius: 25px;
     overflow: hidden;
-    background-color: #bfbfbf;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
 .form-control {
     flex: 1;
-    padding: 10px;
+    padding: 10px 15px;
     border: none;
     outline: none;
     background-color: #ffffff;
+    font-size: 1rem;
 }
 
 .input-group-text {
     background-color: #dbbbff;
-    padding: 10px;
+    padding: 10px 15px;
     cursor: pointer;
     border-left: 1px solid #bfbfbf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-group-text i {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #5500b5;
 }
 
 .navbar-right {
@@ -76,24 +82,33 @@
 }
 
 .nav-icon {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #ffffff;
     text-decoration: none;
     display: flex;
-    align-items: center; 
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.nav-icon:hover {
+    transform: scale(1.2);
 }
 
 .btn-light {
-    padding: 8px 15px;
-    border: 1px solid black;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 8px;
     background-color: #dbbbff;
-    color: bold;
+    color: #5500b5;
+    font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .btn-light:hover {
-    background-color: #6500d6;
+    background-color: #ffde59;
+    transform: scale(1.05);
 }
 
 .header-bottom {
@@ -116,6 +131,7 @@
     display: flex;
     gap: 100px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .nav-link {
@@ -124,15 +140,13 @@
     font-size: 1rem;
     transition: 0.3s;
     font-family: 'Press Start 2P', system-ui;
-    margin-right: 20px;
-}
-
-.nav-link:last-child {
-    margin-right: 0;
+    padding: 10px 15px;
 }
 
 .nav-link:hover {
+    background-color: #ffffff20;
     color: #ffde59;
+    border-radius: 8px;
 }
 
 @media (max-width: 768px) {
@@ -140,13 +154,16 @@
         flex-direction: column;
         gap: 10px;
     }
+
     .navbar-center {
         width: 100%;
     }
+
     .navbar-right {
         justify-content: center;
     }
 }
+
 .cart-container {
     position: relative;
     display: inline-block;
@@ -167,4 +184,35 @@
     line-height: 16px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
+.search-wrapper {
+    position: relative;
+    width: 100%;
+}
 
+.search-wrapper .form-control {
+    width: 100%;
+    padding: 10px 45px 10px 15px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-size: 1rem;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: #5500b5;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-icon:hover {
+    color: #ffde59; /* mesma cor de hover dos ícones */
+}

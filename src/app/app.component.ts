@@ -6,6 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from "./home/home.component";
 import { TransitionScreenComponent } from './transition-screen/transition-screen.component';
 import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, TransitionScreenComponent, CommonModule],

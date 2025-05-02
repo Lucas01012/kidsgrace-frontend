@@ -1,45 +1,38 @@
+<div class="edit-header">
+  <div class="header-content">
+    <h1 class="project-name" (click)="irParaHome()">KidsGrace</h1>
+  </div>
+</div>
 
-<div class="administrator-header">
-    <div class="header-content">
-      <h1 class="project-name" (click)="irParaHome()">KidsGrace</h1>
+<div class="admin-container">
+  <h2>Gerenciar Produtos</h2>
+
+  <div class="product-card" *ngFor="let product of products">
+    <div class="product-info">
+      <img [src]="product.imageUrl" alt="Imagem do Produto" />
+      <div class="details">
+        <p><strong>ID:</strong> {{ product.id }}</p>
+        <p><strong>Nome:</strong> {{ product.name }}</p>
+        <p><strong>Preço:</strong> R$ {{ product.price | number:'1.2-2' }}</p>
+        <p><strong>Tipo:</strong> {{ product.type }}</p>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button class="btn-action edit-btn" (click)="editProduct(product.id)">
+        <i class="bi bi-pen"></i> Editar
+      </button>
+      <button class="btn-action delete-btn" (click)="deleteProduct(product.id)">
+        <i class="bi bi-trash"></i> Excluir
+      </button>
     </div>
   </div>
-<div class="admin-container">
-    <h2>Gerenciar Produtos</h2>
-    <br><br>
-    <h3>Produtos Cadastrados</h3>
-    
-    <table class="products-table">
-        <thead>
-            <tr> 
-                <th>Imagem</th>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Preço</th>
-                <th>Tipo</th>
-            </tr>
-        </thead>
-        <tbody id="products-list"></tbody>
-    </table>
-    
-    <button class="btn-secondary" id="add-product-btn"(click)="irParaEditPage($event)">Adicionar Produto</button>
-    
-    <form id="product-form" class="product-form" style="display: none;">
-        <input type="hidden" id="product-id">
-        
-        <label for="product-name">Nome:</label>
-        <input type="text" id="product-name" class="input-field" required>
-        
-        <label for="product-price">Preço:</label>
-        <input type="number" id="product-price" class="input-field" step="0.01" required>
-        
-        <label for="product-image">Tipo:</label>
-        <input type="file" id="product-image" class="input-file" accept="image/*">
-        
-        <button type="submit" class="btn-primary">Salvar Produto</button>
-        <button type="button" class="btn-secondary" id="cancel-edit">Cancelar</button>
-    </form>
+
+  <button class="btn-primary add-btn" (click)="irParaEditPage($event)">
+    <i class="bi bi-plus-circle"></i> Adicionar Produto
+  </button>
 </div>
+
 <footer>
   <app-footer-generic></app-footer-generic>
 </footer>

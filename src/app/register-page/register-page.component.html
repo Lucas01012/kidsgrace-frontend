@@ -19,10 +19,23 @@
       <label for="o">Email:</label>
       <input type="email" id="o" [(ngModel)]="usuarioData.email" name="o" required />
     </div>
+
+    <div class ="input-group">
+      <label for="userEndereco">Endereço</label>
+      <input type="text" id ="userEndereco" [(ngModel)]="usuarioData.adress" name="userEndereco" required/>
+    </div>
+
+    <div class ="input-group">
+      <label for = "userTelefone">Telefone</label>
+      <input type="tel" id ="userTelefone" [(ngModel)]="usuarioData.phone" name="userPhone" required mask="(00) 00000-0000">
+    </div>
+
     <div class="input-group">
       <label for="senha">Senha:</label>
-      <input type="password" id="senha" [(ngModel)]="usuarioData.password" name="senha" required />
+      <input type="password" id="senha" [(ngModel)]="usuarioData.password" name="senha"
+      required />
     </div>
+    
     <div class="input-group">
       <label for="confirmarSenha">Confirmar Senha:</label>
       <input type="password" id="confirmarSenha" [(ngModel)]="confirmarSenha" name="confirmarSenha" required />

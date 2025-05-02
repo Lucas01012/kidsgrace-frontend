@@ -13,6 +13,8 @@ import { EditPageComponent } from './edit-page/edit-page.component';
 import { CatalogoPageComponent } from './catalogo-page/catalogo-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { TeamInfoComponent } from './team-info/team-info.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
@@ -21,6 +23,7 @@ export const routes: Routes = [
   {path: 'cart', component: CartPageComponent},
   {path: 'admin', component: AdministratorPageComponent},
   {path: 'edit', component: EditPageComponent},
+  {path: 'edit/:id', component: EditPageComponent},
   {path: 'catalogo', component: CatalogoPageComponent},
   {path: 'user', component:ProfilePageComponent},
   {path:'team', component: TeamInfoComponent},
@@ -28,7 +31,8 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: false }), BrowserModule, CommonModule], 
+  imports: [RouterModule.forRoot(routes, { useHash: false }), BrowserModule, CommonModule, HttpClientModule], 
   exports: [RouterModule],
+  providers: []
 })
 export class AppRoutingModule { }

@@ -1,126 +1,144 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+
+:host {
     display: flex;
     flex-direction: column;
-}
-
-body {
+    min-height: 100vh;
+  }
+  
+  .admin-container {
+    flex: 1;
     display: flex;
     flex-direction: column;
-}
-
-.administrator-header {
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 800px;
+    padding: 40px;
+    background-color: #dbbbff;
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    border: 3px solid #5500b5;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 100px;
+  }
+  
+  .admin-container h2{
+    color: #5500b5;
+    font-family: 'Press Start 2P', system-ui;
+    text-shadow: 1px 1px 2px #6500d6;
+    margin-bottom: 25px;
+  }
+  .edit-header {
     width: 100%;
     background: linear-gradient(to right, #5500b5, #dbbbff);
     color: #ffffff;
     text-align: center;
     padding: 50px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    margin-bottom: 50px;
-}
-
-.header-content {
+  }
+  
+  .header-content {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.project-name {
+    cursor: pointer;
+  }
+  
+  .project-name {
     font-size: 2rem;
     font-weight: bold;
     font-family: 'Press Start 2P', system-ui;
     margin: 0;
-    cursor: pointer;
-}
-
-.admin-container {
-    width: 80%;
-    max-width: 900px;
-    margin: auto;
-    padding: 40px;
-    background-color: #dbbbff;
-    border-radius: 15px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    border: 3px solid #5500b5;
-    flex-grow: 1;
-    min-height: 50vh;
-}
-
-h2, h3 {
-    color: #5500b5;
-    text-shadow: 1px 1px 2px #6500d6;
-}
-
-.product-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.input-field, .input-file {
+  }
+  
+  .product-card {
     width: 100%;
-    max-width: 400px;
-    padding: 10px;
+    background-color: #f8f8f8;
     border: 2px solid #5500b5;
-    border-radius: 5px;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 1px 1px 8px rgba(0,0,0,0.1);
+    text-align: left;
+  }
+  
+  .product-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .product-info img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #5500b5;
+  }
+  
+  .details p {
+    margin: 6px 0;
+    color: #1d1d1b;
+    font-weight: bold;
+    font-size: 0.95rem;
+  }
+  
+  .action-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .btn-action {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
     font-size: 1rem;
-}
-
-.btn-primary {
-    background-color: #5500b5;
-    color: #ffffff;
-    padding: 10px 20px;
-    font-size: 1rem;
+    font-weight: bold;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
-    font-weight: bold;
-}
-
-.btn-primary:hover {
-    background-color: #6500d6;
-}
-
-.products-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.products-table th, .products-table td {
-    border: 1px solid #5500b5;
-    padding: 10px;
-    text-align: center;
-}
-
-.products-table th {
+    width: 140px;
+    justify-content: center;
+  }
+  
+  .edit-btn {
     background-color: #5500b5;
-    color: #ffffff;
-}
-
-.btn-secondary {
+    color: #fff;
+  }
+  
+  .edit-btn:hover {
     background-color: #6500d6;
-    color: white;
-    padding: 10px 15px;
+  }
+  
+  .delete-btn {
+    background-color: #ff4c4c;
+    color: #fff;
+  }
+  
+  .delete-btn:hover {
+    background-color: #d63333;
+  }
+  
+  .add-btn {
+    margin-top: 30px;
+    width: auto;
+    font-size: 1rem;
+    padding: 14px 30px;
+    background-color: #5500b5;
+    font-weight: bold;
+    color: #fff;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
-    font-weight: bold;
-}
-
-.btn-secondary:hover {
-    background-color: #5500b5;
-}
-footer, app-footer-generic{
-    padding-top: 45px;
-}
+    transition: 0.3s;
+    border-radius: 8px;
+  }
+  
+  footer, app-footer-generic{
+    width: 100%;
+    padding-top: 200px;
+  }
