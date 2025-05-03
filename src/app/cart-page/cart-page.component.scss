@@ -7,6 +7,7 @@
   background-color: #f8f8f8;
 }
 
+/* HEADER */
 .cart-header {
   width: 100%;
   background: linear-gradient(to right, #5500b5, #dbbbff);
@@ -44,6 +45,8 @@
 }
 
 .cart-container h2 {
+  font-family: 'Press Start 2P', system-ui;
+  font-size: 2rem;
   color: #5500b5;
   margin-bottom: 25px;
   text-shadow: 1px 1px 2px #6500d6;
@@ -55,12 +58,13 @@
   justify-content: space-between;
   margin-bottom: 20px;
   border-bottom: 1px solid #ddd;
-  padding: 10px;
+  padding: 20px;
+  gap: 20px;
 }
 
 .item-img {
-  width: 100px;
-  height: 100px;
+  width: 140x;
+  height: 140px;
   object-fit: cover;
   margin-right: 20px;
 }
@@ -70,33 +74,19 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: left;
+  padding-right: 10px;
 }
 
 .item-actions {
   display: flex;
   gap: 10px;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
-.item-actions .btn-add-to-cart {
-  background-color: #5500b5;
-  color: #ffffff;
-  border: none;
-  padding: 8px 15px;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
-  font-weight: bold;
-}
-
-.item-actions .btn-add-to-cart:hover {
-  background-color: #6500d6;
-}
-
+.item-actions .btn-add-to-cart,
 .item-actions .btn-remove {
   background-color: #5500b5;
   color: #ffffff;
@@ -112,15 +102,34 @@
   font-weight: bold;
 }
 
+.item-actions .btn-add-to-cart:hover,
 .item-actions .btn-remove:hover {
   background-color: #6500d6;
+}
+
+.delete-btn {
+  background-color: #ff4c4c;
+  color: #fff;
+  padding: 8px 15px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.delete-btn:hover {
+  background-color: #d63333;
 }
 
 .item-actions .btn-quantity {
   font-size: 1.5rem;
   color: #5500b5;
   cursor: pointer;
-  transition: 0.3s;
   background-color: transparent;
   border: none;
   display: flex;
@@ -128,6 +137,7 @@
   gap: 8px;
   font-family: 'Press Start 2P', system-ui;
   padding: 8px 12px;
+  transition: 0.3s;
 }
 
 .item-actions .btn-quantity:hover {
@@ -141,14 +151,6 @@
 
 .item-actions .btn-quantity i {
   font-size: 1.5rem;
-}
-
-.item-actions .decrease {
-  background-color: transparent;
-}
-
-.item-actions .increase {
-  background-color: transparent;
 }
 
 .item-actions .decrease:hover {
@@ -165,7 +167,6 @@
   color: #1d1d1b;
   min-width: 30px;
   text-align: center;
-  background-color: #dbbbff;
   border-radius: 5px;
   padding: 5px 10px;
 }
@@ -189,7 +190,31 @@
   color: #5500b5;
   margin-top: 20px;
 }
-footer, app-footer-generic{
+
+footer, app-footer-generic {
   width: 100%;
   padding-top: 25px;
 }
+
+@media (max-width: 600px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item-img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+
+  .item-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .item-details {
+    width: 100%;
+  }
+}
+

@@ -4,31 +4,47 @@
     </div>
   </div>
   
-<div class="catalog-container">
+  <div class="catalog-container">
     <h2>Catálogo de Produtos</h2>
-    
+  
     <div class="filters">
-        <input type="text" id="search" placeholder="Buscar produtos...">
-        <select id="filter-category">
-            <option value="">Todos os tipos</option>
-            <option value="action-figures">Action Figures</option>
-            <option value="pelucias">Funkos</option>
-            <option value="colecionaveis">Estatuetas</option>
-            <option value="colecionaveis">Brinquedos</option>
-        </select>
-        <select id="filter-price">
-            <option value="">Ordenar por preço</option>
-            <option value="asc">Menor preço</option>
-            <option value="desc">Maior preço</option>
-        </select>
+      <input type="text" id="search" placeholder="Buscar produtos..." [(ngModel)]="filtroTexto">
+      
+      <select id="filter-category" [(ngModel)]="filtroCategoria">
+        <option value="">Todos os tipos</option>
+        <option value="action-figures">Action Figures</option>
+        <option value="pelucias">Funkos</option>
+        <option value="estatuetas">Estatuetas</option>
+        <option value="brinquedos">Brinquedos</option>
+      </select>
+      
+      <select id="filter-price" [(ngModel)]="filtroPreco">
+        <option value="">Ordenar por preço</option>
+        <option value="asc">Menor preço</option>
+        <option value="desc">Maior preço</option>
+      </select>
     </div>
-    <div class ="button-busca">
-        <button>Buscar</button>
+  
+    <div class="button-busca">
+      <button (click)="aplicarFiltros()">Buscar</button>
     </div>
-    
-    <div class="product-grid" id="product-grid">
+  
+    <div class="product-grid" *ngIf="produtosFiltrados.length > 0">
+      <app-card-reut *ngFor="let produto of produtosFiltrados"
+                     [produto]="produto"
+                     (diminuir)="diminuirQuantidade(produto)"
+                     (aumentar)="aumentarQuantidade(produto)"
+                     (adicionar)="adicionarItem(produto, $event)">
+      </app-card-reut>
     </div>
-</div>
-<footer>
+  
+    <div *ngIf="produtosFiltrados.length === 0 && (filtroTexto || filtroCategoria || filtroPreco)">
+      <p class="text-muted">Nenhum produto encontrado com os filtros selecionados.</p>
+    </div>
+  </div>
+  
+  <footer>
     <app-footer-generic></app-footer-generic>
-</footer>
+  </footer>
+  
+  

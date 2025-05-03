@@ -1,36 +1,49 @@
+<!-- Cabeçalho do carrinho -->
 <div class="cart-header">
   <div class="header-content">
     <h1 class="project-name" (click)="irParaHome()">KidsGrace</h1>
   </div>
 </div>
 
-<div class="cart-container">
-  <h2> Meu Carrinho</h2>
+<!-- Container principal do carrinho -->
+<section class="cart-container">
+  <h2>Meu Carrinho</h2>
 
   <div *ngIf="carrinho.length > 0; else carrinhoVazio">
-    <div *ngFor="let produto of carrinho; trackBy: trackByProduto" class="cart-item">
-      <img [src]="produto.imagem" alt="{{ produto.nome }}" class="item-img">
-      <div class="item-details">
-        <h3>{{ produto.nome }}</h3>
-        <p>Preço: R$ {{ produto.preco * produto.quantidade | number:'1.2-2' }}</p>
-        <p>Quantidade: {{ produto.quantidade }}</p>
+    <!-- Lista de produtos no carrinho -->
+    <article *ngFor="let produto of carrinho; trackBy: trackByProduto" class="cart-item">
+      <div class="item-left">
+        <img [src]="produto.imagem" alt="{{ produto.nome }}" class="item-img" />
         <div class="item-actions">
           <i class="bi bi-dash-circle btn-quantity decrease" (click)="diminuirQuantidade(produto)"></i>
           <span class="quantity">{{ produto.quantidade }}</span>
           <i class="bi bi-plus-circle btn-quantity increase" (click)="aumentarQuantidade(produto)"></i>
-          <button class="btn-remove" (click)="removerProduto(produto)"> Remover</button>
+          <button class="delete-btn" (click)="removerProduto(produto)">
+            <i class="bi bi-trash"></i> Excluir
+          </button>
         </div>
       </div>
-    </div>
-    <h3>Total: R$ {{ total | number:'1.2-2' }}</h3>
-    <button (click)="limparCarrinho()" class="clear-cart-button"> Limpar Carrinho</button>
-  </div>
-  
+    
+      <div class="item-details">
+        <h3>{{ produto.nome }}</h3>
+        <p>Preço: R$ {{ produto.preco * produto.quantidade | number:'1.2-2' }}</p>
+        <p>Quantidade: {{ produto.quantidade }}</p>
+      </div>
+    </article>
+    
 
+    <!-- Total e botão limpar -->
+    <h3>Total: R$ {{ total | number:'1.2-2' }}</h3>
+    <button (click)="limparCarrinho()" class="clear-cart-button">Limpar Carrinho</button>
+  </div>
+
+  <!-- Mensagem de carrinho vazio -->
   <ng-template #carrinhoVazio>
-    <p>Seu carrinho está vazio. Adicione produtos para continuar! </p>
+    <p>Seu carrinho está vazio. Adicione produtos para continuar!</p>
   </ng-template>
-</div>
+</section>
+
+<!-- Rodapé -->
 <footer>
   <app-footer-generic></app-footer-generic>
 </footer>

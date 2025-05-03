@@ -1,26 +1,29 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Produto } from '../models/produto.model';
+import { CommonModule } from '@angular/common';
+import { Product } from '../services/product.service';
 @Component({
   selector: 'app-card-produto',
   templateUrl: './card-produto.component.html',
-  styleUrls: ['./card-produto.component.scss']
+  styleUrls: ['./card-produto.component.scss'],
+  imports: [CommonModule],
+  standalone: true
 })
 export class CardProdutoComponent {
-  @Input() produto!: Produto;
-  @Output() adicionar = new EventEmitter<Produto>();
-  @Output() aumentar = new EventEmitter<Produto>();
-  @Output() diminuir = new EventEmitter<Produto>();
-  
-  adicionarItem(event: Event) {
-    event.stopPropagation();
-    this.adicionar.emit(this.produto);
-  }
-  
-  aumentarQuantidade() {
-    this.aumentar.emit(this.produto);
-  }
+  @Input() produto!: Product;
+  @Output() adicionar = new EventEmitter<Product>();
+  @Output() aumentar = new EventEmitter<Product>();
+  @Output() diminuir = new EventEmitter<Product>();
+
   
   diminuirQuantidade() {
     this.diminuir.emit(this.produto);
+  }
+
+  aumentarQuantidade() {
+    this.aumentar.emit(this.produto);
+  }
+
+  adicionarItem() {
+    this.adicionar.emit(this.produto);
   }
 }
