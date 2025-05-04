@@ -8,6 +8,7 @@ export interface Product {
   price: number;
   imageUrl: string;
   quantity: number;
+  showOnInitialPage?: boolean;
 }
 
 @Injectable({

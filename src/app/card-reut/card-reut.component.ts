@@ -9,19 +9,23 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class CardReutComponent {
   @Input() produto: any;
-  @Output() adicionar = new EventEmitter<any>();
-
-  aumentarQuantidade() {
-    this.produto.quantity++;
-  }
+  @Output() diminuir = new EventEmitter<void>();
+  @Output() aumentar = new EventEmitter<void>();
+  @Output() adicionar = new EventEmitter<MouseEvent>();
 
   diminuirQuantidade() {
     if (this.produto.quantity > 1) {
       this.produto.quantity--;
+      this.diminuir.emit();
     }
   }
 
-  adicionarItem() {
-    this.adicionar.emit(this.produto);
+  aumentarQuantidade() {
+    this.produto.quantity++;
+    this.aumentar.emit();
+  }
+
+  adicionarItem(event: MouseEvent) {
+    this.adicionar.emit(event);
   }
 }

@@ -1,16 +1,13 @@
-<!-- Cabeçalho do carrinho -->
 <div class="cart-header">
   <div class="header-content">
     <h1 class="project-name" (click)="irParaHome()">KidsGrace</h1>
   </div>
 </div>
 
-<!-- Container principal do carrinho -->
 <section class="cart-container">
   <h2>Meu Carrinho</h2>
 
   <div *ngIf="carrinho.length > 0; else carrinhoVazio">
-    <!-- Lista de produtos no carrinho -->
     <article *ngFor="let produto of carrinho; trackBy: trackByProduto" class="cart-item">
       <div class="item-left">
         <img [src]="produto.imagem" alt="{{ produto.nome }}" class="item-img" />
@@ -32,18 +29,15 @@
     </article>
     
 
-    <!-- Total e botão limpar -->
     <h3>Total: R$ {{ total | number:'1.2-2' }}</h3>
     <button (click)="limparCarrinho()" class="clear-cart-button">Limpar Carrinho</button>
   </div>
 
-  <!-- Mensagem de carrinho vazio -->
   <ng-template #carrinhoVazio>
     <p>Seu carrinho está vazio. Adicione produtos para continuar!</p>
   </ng-template>
 </section>
 
-<!-- Rodapé -->
 <footer>
   <app-footer-generic></app-footer-generic>
 </footer>

@@ -1,20 +1,24 @@
 <div class="card">
-    <img [src]="produto.imageUrl" [alt]="produto.name" class="card-img" />
-    <div class="card-body">
-      <h3 class="card-title">{{ produto.name }}</h3>
-      <p class="card-text">{{ produto.price | number: '1.2-2' }}</p>
-      <p class="card-text">{{ produto.parcelamento }}</p>
-  
-      <div class="quantity-container">
-        <button class="btn-quantity" (click)="diminuirQuantidade()">-</button>
+  <img [src]="produto.imageUrl" [alt]="produto.name" class="card-img" />
+  <div class="card-body">
+    <h3 class="card-title">{{ produto.name }}</h3>
+    <p class="card-text">{{ produto.price | number: '1.2-2' }}</p>
+    <p class="card-text">{{ produto.parcelamento }}</p>
+
+    <div class="quantity-container">
+      <div class="quantity-controls">
+        <button class="btn-quantity" (click)="diminuirQuantidade()">
+          <i class="bi bi-dash-circle"></i>
+        </button>
         <span class="quantity">{{ produto.quantity }}</span>
-        <button class="btn-quantity" (click)="aumentarQuantidade()">+</button>
+        <button class="btn-quantity" (click)="aumentarQuantidade()">
+          <i class="bi bi-plus-circle"></i>
+        </button>
       </div>
-  
-      <button class="btn-add-to-cart" (click)="adicionarItem()">
-        Adicionar ao carrinho
+
+      <button class="btn-add-to-cart" (click)="adicionarItem($event)">
+        <i class="bi bi-cart"></i>  Adicionar
       </button>
     </div>
   </div>
-  
-  
+</div>

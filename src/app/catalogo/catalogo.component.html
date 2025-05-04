@@ -2,10 +2,10 @@
     <div class="row">
         <div class="col-md-3" *ngFor="let produto of produtos">
             <div class="card">
-                <img [src]="produto.imagem" alt="{{ produto.nome }}">
+                <img [src]="produto.imageUrl" alt="{{ produto.name }}">
                 <div class="card-body">
-                    <h5 class="card-title">{{ produto.nome }}</h5>
-                    <p class="card-text">{{ produto.preco }}</p>
+                    <h5 class="card-title">{{ produto.name }}</h5>
+                    <p class="card-text">R$ {{ produto.price }}</p>
                     <p class="card-text">{{ produto.parcelamento }}</p>
                 </div>
                 <div class="quantity-container">

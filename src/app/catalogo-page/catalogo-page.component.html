@@ -2,8 +2,19 @@
     <div class="header-content">
       <h1 class="project-name" (click)="irParaHome($event)">KidsGrace</h1>
     </div>
+    <div class="catalog-cart">
+      <a href="#" class="nav-icon" (click)="irParaCarrinhoCompra($event)">
+        <div class="cart-container">
+          <i class="bi bi-cart"></i>
+          <span class="cart-badge" *ngIf="quantidadeTiposProdutos > 0">
+            {{ quantidadeTiposProdutos }}
+          </span>
+        </div>
+      </a>
+    </div>    
   </div>
   
+
   <div class="catalog-container">
     <h2>Catálogo de Produtos</h2>
   
@@ -43,8 +54,10 @@
     </div>
   </div>
   
+  <img *ngIf="animatingItem"
+     [src]="animatingItem.imagem"
+     class="animation-item"
+     [ngStyle]="{'top.px': animatingItem.top, 'left.px': animatingItem.left}" />
   <footer>
     <app-footer-generic></app-footer-generic>
   </footer>
-  
-  

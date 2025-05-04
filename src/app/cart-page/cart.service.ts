@@ -23,8 +23,12 @@ export class CartService {
   adicionarProduto(produto: any) {
     const carrinhoAtual = this.carrinhoSubject.value;
     const itemExistente = carrinhoAtual.find(item => item.id === produto.id);
-    const precoNumerico = parseFloat(produto.preco.replace('R$ ', '').replace(',', '.'));
-
+  
+    const precoNumerico =
+      typeof produto.preco === 'string'
+        ? parseFloat(produto.preco.replace('R$ ', '').replace(',', '.'))
+        : produto.preco;
+  
     if (itemExistente) {
       const novoCarrinho = carrinhoAtual.map(item => {
         if (item.id === produto.id) {
@@ -34,12 +38,15 @@ export class CartService {
       });
       this.carrinhoSubject.next(novoCarrinho);
     } else {
-      this.carrinhoSubject.next([...carrinhoAtual, { ...produto, preco: precoNumerico }]);
+      this.carrinhoSubject.next([
+        ...carrinhoAtual,
+        { ...produto, preco: precoNumerico },
+      ]);
     }
-
+  
     this.atualizarQuantidadeTotal();
   }
-
+  
   removerProduto(produto: ProdutoCarrinho) {
     const carrinhoAtual = this.carrinhoSubject.value;
     const novoCarrinho = carrinhoAtual.filter(item => item.id !== produto.id);
