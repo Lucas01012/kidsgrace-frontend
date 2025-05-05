@@ -20,11 +20,17 @@
                     </span>
                 </div>
             </a>
+            <ng-container *ngIf="isLogin">
+                <a href="#" class="nav-icon" (click)="irParaUser($event)">
+                    <!-- <i class="bi bi-person-circle"></i> -->
+                    <img [src]="avatarSelecionado" alt="Foto do Usuário" class="profile-img">
+                </a>
+                <button class="btn btn-light" (click)="logout()">Sair</button>
+            </ng-container>
 
-            <a href="#" class="nav-icon" (click)="irParaUser($event)">
-                <i class="bi bi-person-circle"></i>
-            </a>
-            <button class="btn btn-light" (click)="irParaLogin()">Login</button>
+            <ng-container *ngIf="!isLogin">
+                <button class="btn btn-light" (click)="irParaLogin()">Login</button>
+            </ng-container>
         </div>
     </nav>
 
@@ -33,7 +39,9 @@
         <nav class="nav">
             <a href="#" class="nav-link" (click)="irParaCatalogo($event)">Catálogo</a>
             <a href="#" class="nav-link" (click)="irParaEquipe($event)">Equipe</a>
-            <a href="#" class="nav-link" (click)="irParaAdministracao($event)">Administrativo</a>
+            <ng-container *ngIf="isAdmin()">
+                <a href="#" class="nav-link" (click)="irParaAdministracao($event)">Administrativo</a>
+            </ng-container>
         </nav>
     </div>
 </header>

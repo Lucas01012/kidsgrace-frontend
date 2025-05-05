@@ -19,8 +19,8 @@ export class RegisterPageComponent {
     name: '',
     username: '',
     email: '',
-    adress: '',
-    phone: '',
+    address: '',
+    telephone: '',
     password: ''
   };
 
@@ -29,29 +29,23 @@ export class RegisterPageComponent {
   constructor(private router: Router, private authService: AuthService) {} // Injetando o AuthService
 
   cadastrar() {
-console.log(this.usuarioData);
-
+    console.log(this.usuarioData);
     if (this.usuarioData.password === this.confirmarSenha){
         // Chama o método cadastrar do AuthService
-      this.authService.cadastrar(this.usuarioData).subscribe(
-        (response) => {
-          console.log('Cadastro realizado com sucesso!', response);
-          // Redireciona para a página de login após o cadastro
+      this.authService.cadastrar(this.usuarioData).subscribe({
+        next: (res) => {
+          console.log('Cadastro OK', res);
           this.irParaLogin();
         },
-        (error) => {
-          console.error('Erro ao cadastrar usuário', error);
-          // Aqui você pode adicionar lógica para exibir uma mensagem de erro para o usuário
+        error: (err) => {
+          console.error('Erro ao cadastrar', err);
+          // mostrar toast ou erro pro usuário
         }
-      );
+      });
     }
-
     else{
       console.log("deu merda");
     }
-    
-    
-    
   }
 
   irParaLogin() {

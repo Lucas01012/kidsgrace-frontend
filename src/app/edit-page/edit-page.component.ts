@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FooterGenericComponent } from '../footer-generic/footer-generic.component';
 import { ProductService, Product } from '../services/product.service';
+import { error } from 'node:console';
 
 @Component({
   selector: 'app-edit-page',
@@ -13,12 +14,19 @@ import { ProductService, Product } from '../services/product.service';
   styleUrls: ['./edit-page.component.scss']
 })
 export class EditPageComponent implements OnInit {
-  produto: Partial<Product> = {
+  produto: Product = {
+    id: 0,
     name: '',
     type: 'Action-Figure',
+    description: '',
+    brand: '',
     price: 0,
-    imageUrl: ''
+    imageUrl: '',
+    quantity: 1
   };
+
+
+  image!: File;
   imagePreview: string | ArrayBuffer | null | undefined = null;
 
   constructor(
@@ -38,32 +46,48 @@ export class EditPageComponent implements OnInit {
       }
     }
   }
-  
 
   onImageChange(event: any) {
-    const file = event.target.files[0];
-    if (file) {
+    this.image = event.target.files[0];
+    if (this.image) {
       const reader = new FileReader();
       reader.onload = () => {
         this.imagePreview = reader.result;
         this.produto.imageUrl = this.imagePreview as string;
       };
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(this.image);
     }
   }
 
   salvarProduto() {
-    if (this.produto.id != null) {
-      this.productService.updateProduct(this.produto as Product);
+
+    if (this.produto.id != 0) {
+      console.log(this.produto)
+      console.log(this.image)
+
+
+      this.productService.updateProduct(this.produto, this.image).subscribe({
+        next: (response) => {
+          console.log(response)
+          this.router.navigate(['/admin']);
+        },
+        error: (erro) => {
+          console.log(erro)
+        }
+      });
     } else {
-      this.productService.addProduct({
-        name: this.produto.name || '',
-        type: this.produto.type || '',
-        price: this.produto.price || 0,
-        imageUrl: this.produto.imageUrl || ''
+      
+      this.productService.addProduct(this.produto, this.image ).subscribe({
+        next: (response) => {
+          console.log(response)
+          this.router.navigate(['/admin']);
+        },
+        error: (erro) => {
+          console.log(erro)
+        }
       });
     }
-    this.router.navigate(['/admin']);
+    
   }
 
   cancelar() {

@@ -139,6 +139,13 @@
   transition: all 0.8s ease-in-out;
   z-index: 1000;
 }
+
+.imageSize {      
+  max-height: 310px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 footer, app-footer-generic {
   width: 100vw;
 }

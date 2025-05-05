@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ProductService, Product } from '../services/product.service';
 import { FooterGenericComponent } from '../footer-generic/footer-generic.component';
 import { CommonModule } from '@angular/common';
+import { response } from 'express';
 
 @Component({
   selector: 'app-administrator-page',
@@ -19,21 +20,37 @@ export class AdministratorPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.productService.products$
-      .subscribe(list => this.products = list);
+    this.productService.loadProductsFromServer();
+
+    this.productService.products$.subscribe(products => {
+      // Aqui você recebe os produtos atualizados
+      this.products = products
+
+      console.log('Produtos:', this.products);
+    });
   }
 
   addNew() {
     this.router.navigate(['/edit']);
   }
 
-  editProduct(id: number) {
+  editProduct(id: any) {
     this.router.navigate(['/edit', id]);
   }
 
-  deleteProduct(id: number) {
+  deleteProduct(id: any) {
     if (confirm('Tem certeza que deseja excluir este produto?')) {
-      this.productService.deleteProduct(id);
+      this.productService.deleteProduct(id).subscribe({
+        next: (response) =>{
+          console.log(response)
+
+          this.productService.loadProductsFromServer();
+        },
+        error: (erro) =>{
+          console.log(erro)
+
+        }
+      });
     }
   }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef, Input, ElementRef, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../cart-page/cart.service';
-import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 import { Product, ProductService } from '../services/product.service';
 
 @Component({
@@ -17,10 +17,13 @@ export class CatalogoComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private productService: ProductService
+    private productService: ProductService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
+    this.productService.loadProductsFromServer();
+
     this.productService.products$.subscribe(list => {
       this.produtos = list.map(p => ({
         ...p,
@@ -28,6 +31,10 @@ export class CatalogoComponent implements OnInit {
         parcelamento: `Até 10x de R$ ${(Number(p.price) / 10).toFixed(2)} sem juros!`
       }));
     });
+  }
+
+  goProduct(productId: any){
+    this.router.navigate(["/toys", productId])
   }
 
   adicionarItem(produto: any, event: MouseEvent) {
@@ -54,6 +61,7 @@ export class CatalogoComponent implements OnInit {
       this.animatingItem = null;
       const produtoFormatado = this.formatarProdutoParaCarrinho(produto);
       this.cartService.adicionarProduto(produtoFormatado);
+      console.log(produtoFormatado)
     }, 800);
   }
 
@@ -69,12 +77,12 @@ export class CatalogoComponent implements OnInit {
   }
 
   aumentarQuantidade(produto: any) {
-    produto.quantidade++;
+    produto.quantity++;
   }
 
   diminuirQuantidade(produto: any) {
-    if (produto.quantidade > 1) {
-      produto.quantidade--;
+    if (produto.quantity > 1) {
+      produto.quantity--;
     }
   }
 }

@@ -36,9 +36,13 @@ export class CatalogoPageComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit() {
+    this.productService.loadProductsFromServer();
+
     this.cartService.quantidadeTotal$.subscribe(quantidade => {
       this.quantidadeTiposProdutos = quantidade;
     });
+
+
 
     this.productService.products$.subscribe(list => {
       this.todosProdutos = list.map(p => ({
@@ -49,6 +53,8 @@ export class CatalogoPageComponent implements OnInit, AfterViewInit {
       }) as Product & { quantity: number; parcelamento: string });
       this.produtosFiltrados = [];
     });
+
+
   }
 
   ngAfterViewInit() {

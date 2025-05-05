@@ -1,7 +1,7 @@
 <div class="card">
-  <img [src]="produto.imageUrl" [alt]="produto.name" class="card-img" />
+  <img [src]="produto.imageUrl" class="imageSize" [alt]="produto.name" class="card-img" />
   <div class="card-body">
-    <h3 class="card-title">{{ produto.name }}</h3>
+    <h3 class="card-title text-truncate" style="width: 100%;">{{ produto.name }}</h3>
     <p class="card-text">{{ produto.price | number: '1.2-2' }}</p>
     <p class="card-text">{{ produto.parcelamento }}</p>
 

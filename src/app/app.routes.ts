@@ -13,21 +13,23 @@ import { EditPageComponent } from './edit-page/edit-page.component';
 import { CatalogoPageComponent } from './catalogo-page/catalogo-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { TeamInfoComponent } from './team-info/team-info.component';
+import { DetalheProdutoPageComponent } from './detalhe-produto-page/detalhe-produto-page.component'
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginPageComponent },
-  {path: 'register', component: RegisterPageComponent},
-  {path: 'cart', component: CartPageComponent},
-  {path: 'admin', component: AdministratorPageComponent},
-  {path: 'edit', component: EditPageComponent},
-  {path: 'edit/:id', component: EditPageComponent},
-  {path: 'catalogo', component: CatalogoPageComponent},
-  {path: 'user', component:ProfilePageComponent},
-  {path:'team', component: TeamInfoComponent},
-  {path:'toys', loadChildren: () => import('./toys/toys.module').then(m => m.ToysModule)}
+  { path: 'register', component: RegisterPageComponent },
+  { path: 'cart', component: CartPageComponent },
+  { path: 'admin', component: AdministratorPageComponent },
+  { path: 'edit', component: EditPageComponent },
+  { path: 'edit/:id', component: EditPageComponent },
+  { path: 'catalogo', component: CatalogoPageComponent },
+  { path: 'user', component:ProfilePageComponent },
+  { path:'team', component: TeamInfoComponent },
+  { path: 'toys/:id', component: DetalheProdutoPageComponent },
+  { path:'toys', loadChildren: () => import('./toys/toys.module').then(m => m.ToysModule)}
 ];
 
 @NgModule({

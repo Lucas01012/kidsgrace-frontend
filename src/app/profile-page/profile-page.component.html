@@ -9,22 +9,15 @@
 
   <div class="profile-card">
     <div class="profile-img-wrapper" (click)="mostrarSelecaoAvatar = true">
-      <ng-container *ngIf="!avatarSelecionado">
-        <div class="profile-placeholder">
-          <i class="bi bi-pencil-fill edit-icon-only"></i>
-        </div>
-      </ng-container>
-      <ng-container *ngIf="avatarSelecionado">
         <img [src]="avatarSelecionado" alt="Foto do Usuário" class="profile-img profile-img-cover">
-      </ng-container>      
     </div>
     
     
     <div class="profile-info">
-      <p><strong>Nome:</strong> {{ usuario.nome || 'Nome do Usuário' }}</p>
-      <p><strong>Email:</strong> {{ usuario.email || 'usuario@email.com' }}</p>
-      <p><strong>Telefone:</strong> {{ usuario.telefone || '(00) 00000-0000' }}</p>
-      <p><strong>Endereço:</strong> {{ usuario.endereco || 'Cidade, Estado' }}</p>
+      <p><strong>Nome:</strong> {{ decoded.name }}</p>
+      <p><strong>Email:</strong> {{ decoded.email }}</p>
+      <p><strong>Telefone:</strong> {{ decoded.telephone}}</p>
+      <p><strong>Endereço:</strong> {{ decoded.address}}</p>
     </div>
 
     <div class="profile-actions">
@@ -34,9 +27,10 @@
 
   <div *ngIf="mostrarSelecaoAvatar" class="avatar-selection">
     <img *ngFor="let avatar of avatars"
-         [src]="avatar"
-         (click)="selecionarAvatar(avatar)"
-         [class.selected]="avatarSelecionado === avatar">
+         [src]="pfpPath + avatar.namepfp"
+         (click)="selecionarAvatar(avatar.id)"
+         >
+         <!-- [class.selected]="avatarSelecionado == avatar.id" -->
   </div>
   
   </div>

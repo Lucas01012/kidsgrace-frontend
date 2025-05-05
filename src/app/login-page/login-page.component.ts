@@ -24,16 +24,20 @@ export class LoginPageComponent {
     console.log(this.usuarioData);
 
     // Aqui você deve chamar o método de login, e não o de cadastro
-    this.authService.login(this.usuarioData).subscribe(
-      (response) => {
+    this.authService.login(this.usuarioData).subscribe({
+      next: (response) => {
         console.log('Login realizado com sucesso!', response);
+        localStorage.setItem('authToken', response.accessToken);
+
         // Redireciona para a página inicial após o login
         this.irParaHome();
       },
-      (error) => {
+      error: (error) => {
         console.error('Erro ao fazer login', error);
         // Lógica para exibir uma mensagem de erro para o usuário
       }
+    }
+      
     );
   }
 

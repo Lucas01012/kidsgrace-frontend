@@ -6,11 +6,18 @@
 
 <div class="edit-container">
   <h2>Editar Produto</h2>
-  <form id="character-form" (ngSubmit)="salvarProduto()">
+  <form id="character-form" (ngSubmit)="salvarProduto()" >
     <input type="hidden" id="character-id" [(ngModel)]="produto.id" name="id">
 
     <label for="character-name">Nome:</label>
     <input type="text" id="character-name" class="input-field" [(ngModel)]="produto.name" name="name" required>
+
+    <label for="character-description">Descrição:</label>
+    <input type="text" id="character-description" class="input-field " [(ngModel)]="produto.description"
+      name="description" required>
+
+    <label for="character-brand">Marca:</label>
+    <input type="text" id="character-brand" class="input-field" [(ngModel)]="produto.brand" name="brand" required>
 
     <label for="character-class">Tipo:</label>
     <select id="character-class" class="input-field" [(ngModel)]="produto.type" name="type">
@@ -21,11 +28,12 @@
     </select>
 
     <label for="character-level">Preço:</label>
-    <input type="number" id="character-level" class="input-field" [(ngModel)]="produto.price" name="price" min="1" max="100" required>
+    <input type="number" id="character-level" class="input-field" [(ngModel)]="produto.price" name="price" min="1"
+      max="100" required>
 
     <label for="character-image">Imagem:</label>
     <input type="file" id="character-image" class="input-file" accept="image/*" (change)="onImageChange($event)">
-    
+
     <div *ngIf="imagePreview">
       <img [src]="imagePreview" alt="Imagem do produto" width="100" height="100" style="object-fit: cover;">
     </div>
