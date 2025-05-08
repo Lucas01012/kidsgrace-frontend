@@ -5,8 +5,9 @@ import { Observable } from 'rxjs';
 @Injectable({
     providedIn: 'root',
 })
+
 export class UserService {
-    private apiUrl = 'http://localhost:8080/users'; // URL da sua API de cadastro
+    private apiUrl = 'http://localhost:8080/users';
 
     constructor(private http: HttpClient) { }
 
@@ -15,7 +16,7 @@ export class UserService {
     }
 
     putImagePfp(id: any, idImage: any): Observable<string> {
-        const token = localStorage.getItem('authToken'); // ou sessionStorage, dependendo de onde você guardou
+        const token = localStorage.getItem('authToken');
         const headers = new HttpHeaders({
             'Authorization': `Bearer ${token}`
         });

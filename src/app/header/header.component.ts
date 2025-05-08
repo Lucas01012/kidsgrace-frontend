@@ -6,7 +6,8 @@ import { jwtDecode } from 'jwt-decode'
 import { AvatarService, Pfp } from '../services/avatar.service';
 import { UserService } from '../services/user.service';
 import { Console } from 'console';
-
+import { FormsModule } from '@angular/forms';
+import { BuscaService } from '../services/busca.service';
 export interface CustomJwtPayload {
   address: string;
   roles: string[];
@@ -21,13 +22,14 @@ export interface CustomJwtPayload {
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  imports: [CommonModule]
+  imports: [CommonModule, FormsModule]
 })
 export class HeaderComponent implements OnInit {
   avatars: Pfp[] = []
   token!: CustomJwtPayload;
   avatarSelecionado: string  = "";
-  pfpPath: string = 'assets/avatars/'
+  pfpPath: string = 'assets/avatars/';
+  termoBusca = '';
   
   quantidadeTotal: number = 0;
   quantidadeTiposProdutos = 0;
@@ -35,7 +37,7 @@ export class HeaderComponent implements OnInit {
 
   isLogin =  localStorage.getItem("authToken") ? true : false;
   
-  constructor(private router: Router, private cartService: CartService, private avatarService: AvatarService, private userService: UserService) {}
+  constructor(private router: Router, private cartService: CartService, private avatarService: AvatarService, private userService: UserService, private buscaService: BuscaService) {}
 
 
   isAdmin(): boolean {
@@ -53,6 +55,12 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  buscar() {
+    if (this.termoBusca.trim()) {
+      this.buscaService.atualizarTermoBusca(this.termoBusca.trim());
+      this.router.navigate(['/catalogo']);
+    }
+  }
   getImagePfpId() {
     this.isAdmin()
 
@@ -63,7 +71,6 @@ export class HeaderComponent implements OnInit {
     },
     error: (error) => {
       console.error('Erro ao fazer requisição', error);
-      // Lógica para exibir uma mensagem de erro para o usuário
     }})
   }
 
@@ -80,6 +87,7 @@ export class HeaderComponent implements OnInit {
   logout(){
     localStorage.clear()
     this.irParaLogin()
+    this.cartService.resetCarrinho();
   }
 
   irParaLogin() {

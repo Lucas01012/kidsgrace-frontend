@@ -25,6 +25,14 @@
       <button class="btn-action delete-btn" (click)="deleteProduct(product.id)">
         <i class="bi bi-trash"></i> Excluir
       </button>
+
+      <button class="btn-action add-home-btn" *ngIf="!product.isVisibleInCatalog" (click)="toggleFeatured(product)">
+        <i class="bi bi-house-add"></i> Home +
+      </button>
+
+      <button class="btn-action remove-btn" *ngIf="product.isVisibleInCatalog" (click)="toggleFeatured(product)">
+        <i class="bi bi-house-dash"></i> Home -
+      </button>
     </div>
   </div>
 

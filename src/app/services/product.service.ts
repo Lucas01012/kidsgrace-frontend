@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { throwError } from 'rxjs';
 
 export interface Product {
-  id?: number ;
+  id?: number;
   name: string;
   type: string;
   price: number;
@@ -11,6 +12,8 @@ export interface Product {
   brand: string;
   imageUrl: string;
   quantity: number;
+  featured?: boolean;
+  isVisibleInCatalog?: boolean;
 }
 
 @Injectable({
@@ -33,10 +36,11 @@ export class ProductService {
 
     return headers
   }
-  
+
+
+   
   private mapToyToProduct(toy: any): Product {
     const imageUrl = toy.image ? `data:image/jpeg;base64,${toy.image}` : 'assets/default-image.jpg';
-
     return {
       id: toy.id,
       name: toy.name,
@@ -44,22 +48,24 @@ export class ProductService {
       description: toy.description,
       brand: toy.brand,
       imageUrl: imageUrl,
-      price: toy.value, 
-      quantity: 1 
+      price: toy.value,
+      quantity: 1,
+      isVisibleInCatalog: toy.visibleInCatalog !== undefined ? toy.visibleInCatalog : true,
     };
   }
   constructor(private http: HttpClient) { }
 
   addProduct(product: Product, imagem: File): Observable<any> {
     const formData = new FormData();
-    formData.append('name',product.name)
-    formData.append('category',product.type)
-    formData.append('description',product.description)
-    formData.append('brand',product.brand)
-    formData.append('value', product.price.toString())
-    formData.append('image', imagem)
-
-    return this.http.post<string>(`${this.apiUrl}/insert`, formData, { headers: this.generateHeaders()});
+    formData.append('name', product.name);
+    formData.append('category', product.type);
+    formData.append('description', product.description);
+    formData.append('brand', product.brand);
+    formData.append('value', product.price.toString());
+    formData.append('image', imagem);
+    formData.append('visibleInCatalog', product.isVisibleInCatalog ? 'true' : 'false'); // Inclui a visibilidade
+  
+    return this.http.post<string>(`${this.apiUrl}/insert`, formData, { headers: this.generateHeaders() });
   }
 
   loadProductsFromServer(): void {
@@ -87,7 +93,7 @@ export class ProductService {
   }
 
 
-  updateProduct(updatedProduct: Product, imagem: File) {
+ updateProduct(updatedProduct: Product, imagem: File) {
     // const currentProducts = this.productsSubject.getValue();
     // const index = currentProducts.findIndex(p => p.id === updatedProduct.id);
 
@@ -109,5 +115,10 @@ export class ProductService {
     }
 
     return this.http.put<string>(`${this.apiUrl}/update/${updatedProduct.id}`, formData, {  headers: this.generateHeaders() })
+  }
+
+  updateProductVisibility(id: number, visibleInCatalog: boolean): Observable<any> {
+    const payload = { visibleInCatalog };
+    return this.http.patch<any>(`${this.apiUrl}/updateVisibility/${id}`, payload, { headers: this.generateHeaders() });
   }
 }

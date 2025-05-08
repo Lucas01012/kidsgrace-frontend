@@ -6,8 +6,8 @@
 
         <div class="navbar-center">
             <div class="search-wrapper">
-                <input type="text" class="form-control" placeholder="O que você procura?">
-                <span class="search-icon"><i class="bi bi-search"></i></span>
+                <input [(ngModel)]="termoBusca" type="text" class="form-control" placeholder="O que você procura?" (keyup.enter)="buscar()">
+                <span class="search-icon" (click)="buscar()"><i class="bi bi-search"></i></span>                
             </div>
         </div>
 
@@ -22,7 +22,6 @@
             </a>
             <ng-container *ngIf="isLogin">
                 <a href="#" class="nav-icon" (click)="irParaUser($event)">
-                    <!-- <i class="bi bi-person-circle"></i> -->
                     <img [src]="avatarSelecionado" alt="Foto do Usuário" class="profile-img">
                 </a>
                 <button class="btn btn-light" (click)="logout()">Sair</button>

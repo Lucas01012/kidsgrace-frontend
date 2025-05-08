@@ -19,6 +19,12 @@
   position: relative;
   border: 3px solid #000;
   margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .card img {
@@ -27,7 +33,6 @@
   object-fit: cover;
   border-radius: 8px;
 }
-
 
 .card-body {
   display: flex;
@@ -82,10 +87,12 @@
   cursor: pointer;
   transition: 0.3s;
   padding: 0;
+  transition: all 0.3s ease;
 }
 
 .btn-quantity:hover {
   color: #6500d6;
+  transform: scale(1.2);
 }
 
 .quantity {
@@ -106,15 +113,17 @@
   align-items: center;
   gap: 5px;
   border-radius: 5px;
-  cursor: pointer;
   transition: 0.3s;
   font-weight: bold;
   margin-top: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-
 
 .btn-add-to-cart:hover {
   background-color: #6500d6;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-add-to-cart i {

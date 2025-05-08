@@ -6,14 +6,14 @@
 
 <div class="edit-container">
   <h2>Editar Produto</h2>
-  <form id="character-form" (ngSubmit)="salvarProduto()" >
+  <form id="character-form" (ngSubmit)="salvarProduto()">
     <input type="hidden" id="character-id" [(ngModel)]="produto.id" name="id">
 
     <label for="character-name">Nome:</label>
     <input type="text" id="character-name" class="input-field" [(ngModel)]="produto.name" name="name" required>
 
     <label for="character-description">Descrição:</label>
-    <input type="text" id="character-description" class="input-field " [(ngModel)]="produto.description"
+    <input type="text" id="character-description" class="input-field" [(ngModel)]="produto.description"
       name="description" required>
 
     <label for="character-brand">Marca:</label>

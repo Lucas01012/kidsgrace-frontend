@@ -83,5 +83,9 @@ export class CartService {
     const quantidadeTiposProdutos = carrinhoAtual.length;
     this.quantidadeTotalSubject.next(quantidadeTiposProdutos);
   }
+  resetCarrinho() {
+    this.carrinhoSubject.next([]);
+    this.quantidadeTotalSubject.next(0);
+  }
   
 }

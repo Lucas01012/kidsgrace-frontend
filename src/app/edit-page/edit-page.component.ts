@@ -17,7 +17,7 @@ export class EditPageComponent implements OnInit {
   produto: Product = {
     id: 0,
     name: '',
-    type: 'Action-Figure',
+    type: '',
     description: '',
     brand: '',
     price: 0,

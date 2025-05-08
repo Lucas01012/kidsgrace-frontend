@@ -25,13 +25,22 @@ export class CatalogoComponent implements OnInit {
     this.productService.loadProductsFromServer();
 
     this.productService.products$.subscribe(list => {
-      this.produtos = list.map(p => ({
-        ...p,
-        quantidade: 1,
-        parcelamento: `Até 10x de R$ ${(Number(p.price) / 10).toFixed(2)} sem juros!`
-      }));
+      this.produtos = list
+        .filter(p => p.isVisibleInCatalog)
+        .map(p => ({
+          ...p,
+          quantidade: 1,
+          parcelamento: `Até 10x de R$ ${(Number(p.price) / 10).toFixed(2)} sem juros!`
+        }));
     });
   }
+
+  isFeatured(id: number): boolean {
+    const stored = localStorage.getItem('featuredProducts');
+    const featured: number[] = stored ? JSON.parse(stored) : [];
+    return featured.includes(id);
+  }
+  
 
   goProduct(productId: any){
     this.router.navigate(["/toys", productId])

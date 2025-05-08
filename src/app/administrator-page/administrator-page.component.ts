@@ -23,15 +23,14 @@ export class AdministratorPageComponent implements OnInit {
     this.productService.loadProductsFromServer();
 
     this.productService.products$.subscribe(products => {
-      // Aqui você recebe os produtos atualizados
-      this.products = products
-
+      this.products = products;
       console.log('Produtos:', this.products);
     });
   }
 
-  addNew() {
-    this.router.navigate(['/edit']);
+  irParaEditPage(event: Event) {
+    event.preventDefault();
+    this.router.navigate(['edit']);
   }
 
   editProduct(id: any) {
@@ -41,25 +40,34 @@ export class AdministratorPageComponent implements OnInit {
   deleteProduct(id: any) {
     if (confirm('Tem certeza que deseja excluir este produto?')) {
       this.productService.deleteProduct(id).subscribe({
-        next: (response) =>{
-          console.log(response)
-
+        next: (response) => {
+          console.log(response);
           this.productService.loadProductsFromServer();
         },
-        error: (erro) =>{
-          console.log(erro)
-
+        error: (erro) => {
+          console.log(erro);
         }
       });
     }
   }
 
+  toggleFeatured(product: Product): void {
+    const newVisibility = !product.isVisibleInCatalog;
+  
+    this.productService.updateProductVisibility(product.id!, newVisibility).subscribe({
+      next: () => {
+        product.isVisibleInCatalog= newVisibility;
+        console.log(`Produto ${product.id} visibilidade atualizada para ${newVisibility}`);
+      },
+      error: (error) => {
+        console.error('Erro ao atualizar visibilidade do produto:', error);
+      }
+    });
+  }
+  
+
   irParaHome() {
     this.router.navigate(['/home']);
   }
-
-  irParaEditPage(event: Event) {
-    event.preventDefault();
-    this.router.navigate(['edit']);
-  }
 }
+

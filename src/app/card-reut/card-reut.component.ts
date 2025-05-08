@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { ProductService } from '../services/product.service';
 @Component({
   selector: 'app-card-reut',
   imports: [CommonModule],
@@ -13,19 +14,26 @@ export class CardReutComponent {
   @Output() aumentar = new EventEmitter<void>();
   @Output() adicionar = new EventEmitter<MouseEvent>();
 
-  diminuirQuantidade() {
+  constructor(
+    private router: Router,
+    private productService: ProductService
+  ){}
+  diminuirQuantidade(event: Event) {
+    event.stopPropagation();
     if (this.produto.quantity > 1) {
-      this.produto.quantity--;
       this.diminuir.emit();
     }
   }
 
-  aumentarQuantidade() {
-    this.produto.quantity++;
+  aumentarQuantidade(event: Event) {
+    event.stopPropagation();
     this.aumentar.emit();
   }
 
   adicionarItem(event: MouseEvent) {
+    event.stopPropagation();
     this.adicionar.emit(event);
   }
+  irParaDetalheProduto(productId: any){
+    this.router.navigate(["/toys", productId])  }
 }

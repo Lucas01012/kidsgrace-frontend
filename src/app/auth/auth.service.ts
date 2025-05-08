@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8080/users'; // URL da sua API de cadastro
+  private apiUrl = 'http://localhost:8080/users';
 
   constructor(private http: HttpClient) {}
 

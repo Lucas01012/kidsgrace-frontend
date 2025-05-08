@@ -21,7 +21,6 @@ export class ToyService {
     return this.http.post(`${this.apiUrl}`, toyData);
   }
 
-  // Caso deseje uma versão para adicionar brinquedo sem imagem:
   adicionarBrinquedoSimples(toy: Toy): Observable<Toy> {
     return this.http.post<Toy>(`${this.apiUrl}`, toy);
   }

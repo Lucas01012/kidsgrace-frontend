@@ -13,37 +13,37 @@ export class TeamInfoComponent {
     {
       nome: 'Lucas Oliveira',
       cargo: 'Desenvolvedor Front-End',
-      foto: 'https://via.placeholder.com/150'
+      foto: 'assets/team/MC.webp'
     },
     {
       nome: 'Leonardo Costa',
       cargo: 'UI/UX Designer',
-      foto: 'https://via.placeholder.com/150'
+      foto: 'assets/team/L.webp'
     },
     {
-      nome: 'Alisson Meyer',
+      nome: 'Alisson Mayer',
       cargo: 'Desenvolvedor Backend',
-      foto: 'https://via.placeholder.com/150'
+      foto: 'assets/team/ALI.webp'
     },
     {
       nome: 'Gabriel Barsani',
       cargo: 'Desenvolvedor Backend',
-      foto: 'https://via.placeholder.com/150'
+      foto: 'assets/team/GF.webp'
     },
     {
       nome: 'Bruno Araujo',
       cargo: 'Desenvolvedor Backend',
-      foto: 'https://via.placeholder.com/150'
+      foto: 'assets/team/BRU.webp'
     },
     {
       nome: 'Henrique Porto',
       cargo: 'QA Engineer',
-      foto: 'https://via.placeholder.com/150'
+      foto: 'assets/team/KAN.webp'
     },
     {
       nome: 'Henrique Barreto',
       cargo: 'Scrum Master',
-      foto: 'https://via.placeholder.com/150'
+      foto: 'assets/team/BART.webp'
     }
   ];
 

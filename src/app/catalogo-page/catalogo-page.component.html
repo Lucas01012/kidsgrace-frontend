@@ -20,8 +20,8 @@
   
     <div class="filters">
       <input type="text" id="search" placeholder="Buscar produtos..." [(ngModel)]="filtroTexto">
-      
       <select id="filter-category" [(ngModel)]="filtroCategoria">
+        <option value=""></option>
         <option value="">Todos os tipos</option>
         <option value="Action-Figure">Action Figures</option>
         <option value="Funko">Funkos</option>
@@ -30,6 +30,7 @@
       </select>
       
       <select id="filter-price" [(ngModel)]="filtroPreco">
+        <option value=""></option>
         <option value="">Ordenar por preço</option>
         <option value="asc">Menor preço</option>
         <option value="desc">Maior preço</option>

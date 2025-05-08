@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -7,6 +7,9 @@ import { CartService } from '../cart-page/cart.service';
 import { FooterGenericComponent } from '../footer-generic/footer-generic.component';
 import { CardReutComponent } from '../card-reut/card-reut.component';
 import { ChangeDetectorRef } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { BuscaService } from '../services/busca.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-catalogo-page',
@@ -15,7 +18,7 @@ import { ChangeDetectorRef } from '@angular/core';
   templateUrl: './catalogo-page.component.html',
   styleUrls: ['./catalogo-page.component.scss']
 })
-export class CatalogoPageComponent implements OnInit, AfterViewInit {
+export class CatalogoPageComponent implements OnInit, AfterViewInit, OnDestroy {
   quantidadeTotal: number = 0;
   quantidadeTiposProdutos = 0;
 
@@ -32,7 +35,10 @@ export class CatalogoPageComponent implements OnInit, AfterViewInit {
     private router: Router,
     private productService: ProductService,
     private cartService: CartService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private route: ActivatedRoute,
+    private buscaService: BuscaService
+
   ) {}
 
   ngOnInit() {
@@ -42,19 +48,23 @@ export class CatalogoPageComponent implements OnInit, AfterViewInit {
       this.quantidadeTiposProdutos = quantidade;
     });
 
-
-
     this.productService.products$.subscribe(list => {
       this.todosProdutos = list.map(p => ({
         ...p,
         price: typeof p.price === 'string' ? parseFloat(p.price) : p.price,
         quantity: 1,
         parcelamento: `Até 10x de R$ ${(Number(p.price) / 10).toFixed(2)} sem juros!`
-      }) as Product & { quantity: number; parcelamento: string });
-      this.produtosFiltrados = [];
+      })) as (Product & { quantity: number; parcelamento: string })[];
+
+      this.buscaService.termoBusca$.subscribe(termo => {
+        this.filtroTexto = termo;
+        this.aplicarFiltros();
+        this.cdr.detectChanges();
+      });
+
+      this.produtosFiltrados = [...this.todosProdutos];
+      this.aplicarFiltros();
     });
-
-
   }
 
   ngAfterViewInit() {
@@ -65,6 +75,13 @@ export class CatalogoPageComponent implements OnInit, AfterViewInit {
         console.log('Posição do ícone do carrinho:', cartRect);
       }
     }, 100);
+  }
+
+  ngOnDestroy(): void {
+    this.buscaService.atualizarTermoBusca('');
+    this.filtroTexto = '';
+    this.filtroCategoria = '';
+    this.filtroPreco = '';
   }
 
   aplicarFiltros() {
