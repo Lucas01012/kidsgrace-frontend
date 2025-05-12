@@ -43,6 +43,10 @@ Assista ao vídeo com a navegação completa:
 ### 🧍 Body (estrutura geral)  
 ![Body](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Body.png?raw=true)
 
+
+
+
+
 ---
 
 ## 🚀 Tecnologias utilizadas
