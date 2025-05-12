@@ -94,6 +94,8 @@ O foco deste repositório é a estrutura e experiência visual do front-end.
 
 🔗 Backend disponível em: loja-brinquedos-api
 
+
+
 👨‍💻 Desenvolvido por - Equipe Meia Lua ao Quadrado
 Lucas Oliveira Silva
 
