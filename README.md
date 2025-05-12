@@ -66,7 +66,7 @@ Assista ao vídeo com a navegação completa:
 - Painel administrativo com:
   - Cadastro de produtos
   - Controle de visibilidade (mostrar/ocultar produtos no catálogo)
-- Componentização com `card-produto` e `card-reut`
+- Componentização.
 - Animações nas transições de telas
 - Efeitos visuais ao interagir com botões, produtos e ações
 
