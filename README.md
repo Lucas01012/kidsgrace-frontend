@@ -14,43 +14,35 @@ Assista ao vídeo com a navegação completa:
 ## 📸 Prints das principais telas
 
 ### 🏠 Home Page  
-![Home Page](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Home%20page.png?raw=true)
-
+![Home Page](https://raw.githubusercontent.com/Lucas01012/kidsgrace-frontend/main/Imagens%20KidsGrace/Home%20page.png)
 
 ### 🧸 Tela de Catálogo  
-![Tela de Catálogo](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Tela%20de%20catalogo.png?raw=true)
-
+![Tela de Catálogo](https://raw.githubusercontent.com/Lucas01012/kidsgrace-frontend/main/Imagens%20KidsGrace/Tela%20de%20catalogo.png)
 
 ### 🔍 Detalhes do Produto  
-![Detalhes do Produto](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Detalhes%20do%20produto.png?raw=true)
-
+![Detalhes do Produto](https://raw.githubusercontent.com/Lucas01012/kidsgrace-frontend/main/Imagens%20KidsGrace/Detalhes%20do%20produto.png)
 
 ### 🛒 Carrinho de Compras  
-![Carrinho](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Carrinho.png?raw=true)
-
+![Carrinho](https://raw.githubusercontent.com/Lucas01012/kidsgrace-frontend/main/Imagens%20KidsGrace/Carrinho.png)
 
 ### 🔐 Login  
-![Login](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Login.png?raw=true)
-
+![Login](https://raw.githubusercontent.com/Lucas01012/kidsgrace-frontend/main/Imagens%20KidsGrace/Login.png)
 
 ### 🧑 Cadastro  
-![Cadastro](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/cadastro.png?raw=true)
-
+![Cadastro](https://raw.githubusercontent.com/Lucas01012/kidsgrace-frontend/main/Imagens%20KidsGrace/cadastro.png)
 
 ### 👤 Perfil do Usuário  
-![Perfil](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Perfil.png?raw=true)
-
+![Perfil](https://raw.githubusercontent.com/Lucas01012/kidsgrace-frontend/main/Imagens%20KidsGrace/Perfil.png)
 
 ### ⬆️ Header  
-![Header](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Header.png?raw=true)
-
+![Header](https://raw.githubusercontent.com/Lucas01012/kidsgrace-frontend/main/Imagens%20KidsGrace/Header.png)
 
 ### ⬇️ Footer  
-![Footer](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Footer.png?raw=true)
-
+![Footer](https://raw.githubusercontent.com/Lucas01012/kidsgrace-frontend/main/Imagens%20KidsGrace/Footer.png)
 
 ### 🧍 Body (estrutura geral)  
-![Body](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Body.png?raw=true)
+![Body](https://raw.githubusercontent.com/Lucas01012/kidsgrace-frontend/main/Imagens%20KidsGrace/Body.png)
+
 
 ---
 
