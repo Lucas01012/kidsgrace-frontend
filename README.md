@@ -94,8 +94,8 @@ ng serve
 
 📌 Observações
 
-  -A aplicação depende de um backend para cadastro e persistência de dados. 
-  -O foco deste repositório é a estrutura e experiência visual do front-end.
+  A aplicação depende de um backend para cadastro e persistência de dados. 
+  O foco deste repositório é a estrutura e experiência visual do front-end.
 
 🔗 Backend disponível em: [loja-brinquedos-api](https://github.com/g-Barsani/loja-brinquedos-api)
 ---
