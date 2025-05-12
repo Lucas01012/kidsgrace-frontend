@@ -17,7 +17,7 @@ Assista ao vídeo com a navegação completa:
 ![Home Page](https://raw.githubusercontent.com/Lucas01012/kidsgrace-frontend/main/Imagens%20KidsGrace/Home%20page.png)
 
 ### 🧸 Tela de Catálogo  
-![Tela de Catálogo](https://raw.githubusercontent.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Tela%20de%20catalogo.png)
+![Tela de Catálogo](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Tela%20de%20catalogo.png?raw=true)
 
 ### 🔍 Detalhes do Produto  
 ![Detalhes do Produto](https://raw.githubusercontent.com/Lucas01012/kidsgrace-frontend/main/Imagens%20KidsGrace/Detalhes%20do%20produto.png)
