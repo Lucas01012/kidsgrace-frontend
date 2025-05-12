@@ -29,7 +29,7 @@ Assista ao vídeo com a navegação completa:
 ![Login](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Login.png?raw=true)
 
 ### 🧑 Cadastro  
-![Cadastro](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/cadastro.png?raw=true)
+![Cadastro](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/cadastro.png)
 
 ### 👤 Perfil do Usuário  
 ![Perfil](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Perfil.png?raw=true)
