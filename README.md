@@ -102,6 +102,8 @@ ng serve
 
 
 👨‍💻 Desenvolvido por - Equipe Meia Lua ao Quadrado
+
+
 Lucas Oliveira Silva
 
 Alisson Mayer Medeji
