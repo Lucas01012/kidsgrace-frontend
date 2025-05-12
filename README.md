@@ -6,7 +6,7 @@ Aplicação web desenvolvida com Angular que simula um catálogo de brinquedos. 
 
 ## 🎥 Demonstração em vídeo
 
-Assista ao vídeo com a navegação completa (admin e usuário comum):  
+Assista ao vídeo com a navegação completa:  
 👉 [Clique aqui para assistir](https://youtu.be/iLZ5pZadPIo)
 
 ---
