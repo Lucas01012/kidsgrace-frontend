@@ -87,7 +87,8 @@ npm install
 ng serve
 
 # Acesse em: http://localhost:4200
----
+```
+
 
 📌 Observações
 -A aplicação depende de um backend para cadastro e persistência de dados.
