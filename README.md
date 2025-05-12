@@ -14,34 +14,34 @@ Assista ao vídeo com a navegação completa (admin e usuário comum):
 ## 📸 Prints das principais telas
 
 ### 🏠 Home Page  
-![Home Page](./docs/Imagens%20KidsGrace/Home%20page.png)
+![Home Page](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Home%20page.png?raw=true)
 
 ### 🧸 Tela de Catálogo  
-![Tela de Catálogo](./docs/Imagens%20KidsGrace/Tela%20de%20catalogo.png)
+![Tela de Catálogo](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Tela%20de%20catalogo.png?raw=true)
 
 ### 🔍 Detalhes do Produto  
-![Detalhes do Produto](./docs/Imagens%20KidsGrace/Detalhes%20do%20produto.png)
+![Detalhes do Produto](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Detalhes%20do%20produto.png?raw=true)
 
 ### 🛒 Carrinho de Compras  
-![Carrinho](./docs/Imagens%20KidsGrace/Carrinho.png)
+![Carrinho](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Carrinho.png?raw=true)
 
 ### 🔐 Login  
-![Login](./docs/Imagens%20KidsGrace/Login.png)
+![Login](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Login.png?raw=true)
 
 ### 🧑 Cadastro  
-![Cadastro](./docs/Imagens%20KidsGrace/cadastro.png)
+![Cadastro](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/cadastro.png?raw=true)
 
 ### 👤 Perfil do Usuário  
-![Perfil](./docs/Imagens%20KidsGrace/Perfil.png)
+![Perfil](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Perfil.png?raw=true)
 
 ### ⬆️ Header  
-![Header](./docs/Imagens%20KidsGrace/Header.png)
+![Header](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Header.png?raw=true)
 
 ### ⬇️ Footer  
-![Footer](./docs/Imagens%20KidsGrace/Footer.png)
+![Footer](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Footer.png?raw=true)
 
 ### 🧍 Body (estrutura geral)  
-![Body](./docs/Imagens%20KidsGrace/Body.png)
+![Body](https://github.com/Lucas01012/kidsgrace-frontend/blob/main/Imagens%20KidsGrace/Body.png?raw=true)
 
 ---
 
@@ -86,7 +86,6 @@ npm install
 ng serve
 
 # Acesse em: http://localhost:4200
-
 
 
 📌 Observações
